@@ -12,7 +12,6 @@ const apiController = {
     )
       .then((res) => res.json())
       .then((data) => {
-        // console.log('data', data)
         if (data['Error Message']) {
           res.locals.stockInfo = 'Invalide Search Keyword';
         } else {
@@ -38,7 +37,6 @@ const apiController = {
             stockTime = '4. close';
           } 
           else {
-            // console.log('in here');
             let minutes = time.slice(3, 5);
             let newMinutes = Number(minutes) - (Number(minutes) % 5);
             if(newMinutes < 10){
@@ -47,19 +45,15 @@ const apiController = {
             }
             time = hour + ':' + newMinutes + ':00';
             stockTime = '1. open';
-            // console.log(time);
           }
           const dateTime = date + ' ' + time;
-          // console.log(dateTime);
+
           //Hard Coded date day - 1;
-          // console.log(data['Time Series (5min)']);
-          // console.log(data['Time Series (5min)'][dateTime]);
           res.locals.stockInfo = {
             symbol: req.params.symbol,
             price: Math.floor(data['Time Series (5min)'][dateTime][stockTime]),
             graph: data['Time Series (5min)']
           };
-          // console.log(res.locals.stockInfo);
         }
         return next();
       })
