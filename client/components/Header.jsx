@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import React from 'react';
+import { useDispatch } from 'react-redux';
 import { setUserAuth } from '../redux/actions/actions';
 import { Link } from 'react-router-dom';
 import Button from './Button';
@@ -17,7 +17,6 @@ const Header = ({userID}) => {
     }));
   }
 
- console.log('userID: ', userID)
   if (!userID) {
     return (
       <div className='header-container'>
