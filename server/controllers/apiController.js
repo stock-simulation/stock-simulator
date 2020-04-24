@@ -23,7 +23,7 @@ const apiController = {
             '0' +
             (today.getMonth() + 1) +
             '-' +
-            (today.getDate() -1);
+            (today.getDate() );
 
           let time =
             today.getHours() +
@@ -39,15 +39,16 @@ const apiController = {
           else {
             let minutes = time.slice(3, 5);
             let newMinutes = Number(minutes) - (Number(minutes) % 5);
-            if(newMinutes < 10){
-              let temp = newMinutes;
-              newMinutes = '0' + temp;
+            if(Number(newMinutes) < 10){
+              // console.log('in here')
+              let temp = newMinutes.slice(1);
+              newMinutes = '0' + Number(temp) - (Number(temp) % 5);
             }
             time = hour + ':' + newMinutes + ':00';
             stockTime = '1. open';
           }
           const dateTime = date + ' ' + time;
-
+            // console.log(dateTime);
           //Hard Coded date day - 1;
           res.locals.stockInfo = {
             symbol: req.params.symbol,

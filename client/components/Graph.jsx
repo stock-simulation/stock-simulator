@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import Plot from 'react-plotly.js';
+import '../styles/graph.scss';
 
 const Graph = ({ graph }) => {
   // const [graphX, setGraphX] = useState([]);
@@ -18,17 +19,17 @@ const Graph = ({ graph }) => {
   // console.log(x);
 
   return (
-    <Plot
+    <Plot className="graph"
       data={[
         {
           x: x,
           y: y,
           type: 'scatter',
           mode: 'lines+markers',
-          marker: { color: 'red' },
+          marker: { color: 'blue' },
         },
       ]}
-      layout={{ width: 720, height: 440, title: 'Stocks Graph' }}
+      layout={{ width: 720, height: 440, title: 'Stocks Graph', plot_bgcolor: 'black', paper_bgcolor: 'white' }}
     />
   );
 };

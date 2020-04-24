@@ -8,9 +8,12 @@
   align-items: center;
   width: 800px;
   // min-height: 500px;
-  box-shadow: 1px 1px 3px grey;
+  box-shadow: 2px 2px 2px rgba(200,200,200,0.8);
   padding: 1rem;
-  background-color: $lightGrey;
+  background-color: $navBlack2;
+  border-radius: 5px;
+  color: $navTitle;
+  font-family: $headerFont;
 }
 
 .validation {
